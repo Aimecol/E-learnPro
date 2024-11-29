@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="../css/registration.css">
-</head>
-<body>
-  <div class="auth-container">
-    <div class="auth-header">
-      <h1>Login</h1>
-      <p>Welcome back! Please log in to your account.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/registration.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1>Login</h1>
+        <p>Welcome back! Please log in to your account.</p>
+      </div>
+      <form id="login-form" class="auth-form">
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me" /> Remember Me
+          </label>
+          <a href="forgot-password.html" class="forgot-password"
+            >Forgot Password?</a
+          >
+        </div>
+        <div class="social-login">
+          <button type="button" class="social-btn google">
+            <i class="fa-brands fa-chrome"></i> Login with Google
+          </button>
+          <button type="button" class="social-btn facebook">
+            <i class="fa-brands fa-facebook"></i> Login with Facebook
+          </button>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+      <footer>
+        <p>
+          Don’t have an account? <a href="registration.html">Register here</a>.
+        </p>
+      </footer>
     </div>
-    <form id="login-form" class="auth-form">
-      <input type="email" id="email" placeholder="Email Address" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <div class="form-options">
-        <label class="remember-me">
-          <input type="checkbox" id="remember-me"> Remember Me
-        </label>
-        <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
-      </div>
-      <div class="social-login">
-        <button type="button" class="social-btn google">Login with Google</button>
-        <button type="button" class="social-btn facebook">Login with Facebook</button>
-      </div>
-      <button type="submit" class="submit-btn">Login</button>
-    </form>
-    <footer>
-      <p>Don’t have an account? <a href="registration.html">Register here</a>.</p>
-    </footer>
-  </div>
-  <script src="../js/login.js"></script>
-</body>
+    <script src="../js/login.js"></script>
+  </body>
 </html>

@@ -1,13 +1,3 @@
-/* General Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
 header.support-header {
   text-align: center;
   padding: 20px;
@@ -17,6 +7,10 @@ header.support-header {
 
 header.support-header h1 {
   margin: 0;
+}
+
+section {
+  text-align: start;
 }
 
 header.support-header p {
@@ -97,18 +91,3 @@ h2 {
   background-color: #218838;
 }
 
-/* Chatbot Section */
-.chatbot-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.chatbot-btn:hover {
-  background-color: #0056b3;
-}

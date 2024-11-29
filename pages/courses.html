@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/courses.css" />
     <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/courses.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -14,41 +14,34 @@
   <body>
     <header class="header">
       <div class="container">
-        <!-- Logo -->
-        <a href="#" class="logo">E-Learn<span>Pro</span></a>
+        <a href="../index.html" class="logo">E-Learn<span>Pro</span></a>
 
-        <!-- Navigation -->
         <nav class="nav">
           <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li class="dropdown">
-              <a>Courses</a>
-              <ul class="dropdown-menu">
-                <li><a href="#webdev">Web Development</a></li>
-                <li><a href="#datasci">Data Science</a></li>
-                <li><a href="#design">Graphic Design</a></li>
-              </ul>
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
             </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="./courses.html"
+                ><i class="fa-solid fa-layer-group"></i> Courses</a
+              >
+            </li>
+            <li>
+              <a href="./about.html"><i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li>
+              <a href="./contact.html"
+                ><i class="fa fa-envelope"></i> Contact</a
+              >
+            </li>
           </ul>
         </nav>
 
-        <!-- Search Bar -->
-        <div class="search-bar">
-          <input type="text" placeholder="Search courses..." />
-          <button><i class="fas fa-search"></i></button>
-        </div>
-
-        <!-- CTA Button -->
-        <a href="#login" class="cta-button"
+        <a href="./login.html" class="cta-button"
           ><i class="fas fa-user"></i> Login</a
         >
 
-        <!-- Hamburger Menu -->
         <div class="hamburger">
-          <span></span>
-          <span></span>
           <span></span>
         </div>
       </div>
@@ -91,7 +84,7 @@
           <div class="course-card" data-category="technology">
             <h3>Web Development</h3>
             <p>Learn to build websites using HTML, CSS, and JavaScript.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Mobile App Development</h3>
@@ -99,17 +92,17 @@
               Create stunning apps for Android and iOS using Flutter and React
               Native.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Data Science and Analytics</h3>
             <p>Master data visualization and analytics techniques.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Machine Learning</h3>
             <p>Dive into supervised and unsupervised learning techniques.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Cloud Computing</h3>
@@ -117,19 +110,19 @@
               Learn AWS, Azure, and Google Cloud to deploy scalable
               applications.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Cybersecurity</h3>
             <p>
               Secure systems and networks with the latest security protocols.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="technology">
             <h3>Game Development</h3>
             <p>Develop engaging games using Unity and Unreal Engine.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Business and Marketing -->
@@ -138,58 +131,58 @@
             <p>
               Learn SEO, SEM, and social media strategies to grow your business.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="business">
             <h3>Entrepreneurship</h3>
             <p>Turn your ideas into a successful business venture.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="business">
             <h3>Financial Planning</h3>
             <p>Manage personal and business finances effectively.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="business">
             <h3>E-commerce Management</h3>
             <p>Set up and manage an online store with ease.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Creative and Design -->
           <div class="course-card" data-category="creative">
             <h3>Graphic Design</h3>
             <p>Learn Photoshop, Illustrator, and design fundamentals.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="creative">
             <h3>Video Editing</h3>
             <p>
               Create professional videos using Premiere Pro and Final Cut Pro.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="creative">
             <h3>3D Modeling</h3>
             <p>Master tools like Blender and Maya to create 3D assets.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Language and Communication -->
           <div class="course-card" data-category="language">
             <h3>English as a Second Language</h3>
             <p>Improve your English speaking and writing skills.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="language">
             <h3>Public Speaking</h3>
             <p>Master the art of confident and engaging presentations.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="language">
             <h3>Learn Spanish</h3>
             <p>Speak, write, and read Spanish fluently with expert guidance.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Science and Mathematics -->
@@ -198,50 +191,50 @@
             <p>
               Understand statistical methods and their real-world applications.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="science">
             <h3>Physics Fundamentals</h3>
             <p>Explore mechanics, thermodynamics, and quantum physics.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Health and Wellness -->
           <div class="course-card" data-category="health">
             <h3>Fitness and Nutrition</h3>
             <p>Learn to create effective workout routines and meal plans.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="health">
             <h3>Mental Health Awareness</h3>
             <p>Understand psychological well-being and stress management.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Finance and Investments -->
           <div class="course-card" data-category="finance">
             <h3>Stock Market Trading</h3>
             <p>Learn the essentials of trading stocks and managing risk.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="finance">
             <h3>Cryptocurrency Basics</h3>
             <p>
               Understand blockchain and cryptocurrency trading fundamentals.
             </p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <!-- Soft Skills -->
           <div class="course-card" data-category="softskills">
             <h3>Time Management</h3>
             <p>Develop strategies to make the best use of your time.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
           <div class="course-card" data-category="softskills">
             <h3>Emotional Intelligence</h3>
             <p>Enhance your interpersonal skills and self-awareness.</p>
-            <button>Learn More</button>
+            <button id="learn-btn">Learn More</button>
           </div>
 
           <p
@@ -254,9 +247,27 @@
       </div>
     </section>
 
+    <div class="chatbot">
+      <div class="chatbot-header">
+        <h3>Hi, how can we help?</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+      </div>
+      <div class="chatbot-messages">
+        <div class="message bot">
+          <p>Hello! I’m your assistant. How can I help you today?</p>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <div class="chatbot-button" onclick="toggleChatbot()">
+      <i class="fas fa-comments"></i>
+    </div>
+
     <footer class="footer">
       <div class="container">
-        <!-- About Section -->
         <div class="footer-column">
           <h3>About E-LearnPro</h3>
           <p>
@@ -265,19 +276,17 @@
           </p>
         </div>
 
-        <!-- Quick Links -->
         <div class="footer-column">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./courses.html">Courses</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./help-support.html">FAQ</a></li>
           </ul>
         </div>
 
-        <!-- Contact Info -->
         <div class="footer-column">
           <h3>Contact Us</h3>
           <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
@@ -288,18 +297,18 @@
           </p>
         </div>
 
-        <!-- Newsletter -->
         <div class="footer-column">
           <h3>Newsletter</h3>
           <p>Subscribe to our newsletter for updates and exclusive content.</p>
           <form>
             <input type="email" placeholder="Enter your email" required />
-            <button type="submit"><i class="fa-brands fa-telegram"></i> Subscribe</button>
+            <button type="submit">
+              <i class="fa-brands fa-telegram"></i> Subscribe
+            </button>
           </form>
         </div>
       </div>
 
-      <!-- Social Media Links -->
       <div class="footer-bottom">
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -311,6 +320,7 @@
       </div>
     </footer>
 
+    <script src="../js/nav.js"></script>
     <script src="../js/courses.js"></script>
   </body>
 </html>

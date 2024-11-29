@@ -35,3 +35,11 @@ function filterCourses() {
 // Event listeners
 searchInput.addEventListener("input", filterCourses);
 categoryFilter.addEventListener("change", filterCourses);
+
+const learnBtn = document.querySelectorAll("#learn-btn");
+
+learnBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.location.href = "./course_detail.html"
+  })
+})

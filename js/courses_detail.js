@@ -2,6 +2,12 @@ const carousel = document.querySelector(".testimonials-carousel");
 const leftArrow = document.querySelector(".left-arrow");
 const rightArrow = document.querySelector(".right-arrow");
 
+document.querySelectorAll(".enroll-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+  document.location.href = "./course_enrollment.html";
+});
+})
+
 let isDragging = false;
 let startX;
 let scrollLeft;
@@ -52,3 +58,4 @@ const updateArrows = () => {
 
 carousel.addEventListener("scroll", updateArrows);
 updateArrows();
+

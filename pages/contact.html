@@ -4,13 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
+    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/contact.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
     />
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <a href="../index.html" class="logo">E-Learn<span>Pro</span></a>
+
+        <nav class="nav">
+          <ul class="nav-links">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li class="dropdown">
+              <a href="./courses.html"
+                ><i class="fa-solid fa-layer-group"></i> Courses</a
+              >
+            </li>
+            <li>
+              <a href="./about.html"><i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li>
+              <a href="./contact.html"
+                ><i class="fa fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <a href="./login.html" class="cta-button"
+          ><i class="fas fa-user"></i> Login</a
+        >
+
+        <div class="hamburger">
+          <span></span>
+        </div>
+      </div>
+    </header>
+
     <div class="contact-container">
       <div class="contact-header">
         <h1>Contact Us</h1>
@@ -84,67 +120,60 @@
       <i class="fas fa-comments"></i>
     </div>
 
-    <script>
-      // Chatbot Toggle
-      function toggleChatbot() {
-        const chatbot = document.querySelector(".chatbot");
-        chatbot.style.display =
-          chatbot.style.display === "flex" ? "none" : "flex";
-      }
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-column">
+          <h3>About E-LearnPro</h3>
+          <p>
+            Your go-to platform for online learning. Access courses, track
+            progress, and enhance your skills anytime, anywhere.
+          </p>
+        </div>
 
-      // Add Message with Animation
-      function addMessage(type, text) {
-        const messagesContainer = document.querySelector(".chatbot-messages");
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message", type);
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./courses.html">Courses</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./help-support.html">FAQ</a></li>
+          </ul>
+        </div>
 
-        if (type === "bot") {
-          // Show typing indicator before bot responds
-          const typingDiv = document.createElement("div");
-          typingDiv.classList.add("message", "bot");
-          typingDiv.innerHTML = `<p class="typing-indicator">Typing</p>`;
-          messagesContainer.appendChild(typingDiv);
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+          <p><i class="fas fa-envelope"></i> support@elearnpro.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Learning St, Knowledge
+            City
+          </p>
+        </div>
 
-          setTimeout(() => {
-            // Replace typing indicator with bot's message
-            typingDiv.remove();
-            messageDiv.innerHTML = `<p>${text}</p>`;
-            messagesContainer.appendChild(messageDiv);
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for updates and exclusive content.</p>
+          <form>
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">
+              <i class="fa-brands fa-telegram"></i> Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
 
-            // Scroll to the latest message
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-          }, 1500); // Delay to simulate typing
-        } else {
-          messageDiv.innerHTML = `<p>${text}</p>`;
-          messagesContainer.appendChild(messageDiv);
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 E-LearnPro. All Rights Reserved.</p>
+      </div>
+    </footer>
 
-          // Scroll to the latest message
-          messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-      }
-
-      // Send Message Event Listener
-      document
-        .getElementById("send-button")
-        .addEventListener("click", function () {
-          const inputField = document.getElementById("chat-input");
-          const message = inputField.value.trim();
-          if (message) {
-            // Add user message to chat
-            addMessage("user", message);
-
-            // Simulate bot response with typing animation
-            setTimeout(() => {
-              addMessage(
-                "bot",
-                "Thanks for your query! Our team will assist you shortly."
-              );
-            }, 2000);
-
-            // Clear input field
-            inputField.value = "";
-          }
-        });
-    </script>
+    <script src="../js/nav.js"></script>
   </body>
 </html>

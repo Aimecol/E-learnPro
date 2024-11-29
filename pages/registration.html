@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link rel="stylesheet" href="../css/registration.css">
-</head>
-<body>
-  <div class="auth-container">
-    <div class="auth-header">
-      <h1>Register</h1>
-      <p>Choose your role to start your journey:</p>
-      <div class="role-toggle">
-        <button class="role-btn active" id="student-btn">Student</button>
-        <button class="role-btn" id="teacher-btn">Teacher</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/registration.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1>Register</h1>
+        <p>Choose your role to start your journey:</p>
+        <div class="role-toggle">
+          <button class="role-btn active" id="student-btn">Student</button>
+          <button class="role-btn" id="teacher-btn">Teacher</button>
+        </div>
       </div>
+      <form id="registration-form" class="auth-form">
+        <input type="text" id="full-name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm Password"
+          required
+        />
+        <div class="social-login">
+          <button type="button" class="social-btn google">
+            <i class="fa-brands fa-chrome"></i> Sign up with Google
+          </button>
+          <button type="button" class="social-btn facebook">
+            <i class="fa-brands fa-facebook"></i> Sign up with Facebook
+          </button>
+        </div>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+      <footer>
+        <p>Already have an account? <a href="login.html">Login here</a>.</p>
+      </footer>
     </div>
-    <form id="registration-form" class="auth-form">
-      <input type="text" id="full-name" placeholder="Full Name" required />
-      <input type="email" id="email" placeholder="Email Address" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <input type="password" id="confirm-password" placeholder="Confirm Password" required />
-      <div class="social-login">
-        <button type="button" class="social-btn google">Sign up with Google</button>
-        <button type="button" class="social-btn facebook">Sign up with Facebook</button>
-      </div>
-      <button type="submit" class="submit-btn">Register</button>
-    </form>
-    <footer>
-      <p>Already have an account? <a href="login.html">Login here</a>.</p>
-    </footer>
-  </div>
-  <script src="../js/registration.js"></script>
-</body>
+    <script src="../js/registration.js"></script>
+  </body>
 </html>

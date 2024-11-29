@@ -1,16 +1,3 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  line-height: 1.6;
-}
-
 /* Header Section */
 .about-header {
   background: linear-gradient(135deg, #4a90e2, #3b78d4);
@@ -114,17 +101,19 @@ body {
 
 /* Vision and Mission Section */
 .vision-mission {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   padding: 40px 20px;
   background: #f4f7fc;
   text-align: center;
 }
 
+.vision-mission .container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .vision,
 .mission {
-  flex: 1 1 calc(50% - 20px);
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -187,10 +176,3 @@ body {
   font-size: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .vision,
-  .mission {
-    flex: 1 1 100%;
-  }
-}

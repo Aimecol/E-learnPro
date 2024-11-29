@@ -110,21 +110,9 @@
   display: flex;
   overflow: hidden;
   position: relative;
-}
-
-.carousel::before,
-.carousel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0)
-  );
-  z-index: 1;
+  /* overflow-x: auto; */
+  padding: 1em;
+  gap: 20px;
 }
 
 .carousel::before {
@@ -135,46 +123,10 @@
   right: 0;
 }
 
-.carousel .testimonial {
-  flex: 0 0 300px;
-  margin: 0 1em;
-  transition: transform 0.3s;
-}
-
-/* Testimonials */
-.testimonials .carousel {
-  display: flex;
-  overflow-x: auto;
-}
-
 .testimonial {
+  transition: transform 0.3s;
   background: #f1f1f1;
   padding: 1em;
   border-radius: 10px;
-  margin: 0 1em;
   flex: 0 0 300px;
-}
-
-/* Contact Form */
-.contact form {
-  display: grid;
-  gap: 1em;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.contact input,
-.contact textarea,
-.contact button {
-  padding: 1em;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact button {
-  background: #4a90e2;
-  color: #fff;
-  border: none;
-  cursor: pointer;
 }

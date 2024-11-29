@@ -1,69 +1,63 @@
 /* General Styles */
-* {
-    box-sizing: border-box;
-}
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px; 
 }
 
-header {
+section {
+  text-align: start;
+}
+
+.enroll-header header {
   background: linear-gradient(to right, #4a90e2, #007aff);
   color: #fff;
   text-align: center;
   padding: 20px 0;
 }
 
-header h1 {
+.enroll-header header h1 {
   margin: 0;
   font-size: 2rem;
 }
 
-header p {
+.enroll-header header p {
   font-size: 1.2rem;
 }
 
 /* Form Section */
-.enrollment-form {
+.enroll-content .enrollment-form {
   background: #f9f9f9;
   padding: 40px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.enrollment-form h3 {
+.enroll-content .enrollment-form h3 {
   margin-bottom: 15px;
 }
 
-.form-group {
+.enroll-content .form-group {
   margin-bottom: 20px;
 }
 
-label {
+.enroll-content label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-input, select, button {
+.enroll-content input, select, button {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
-button {
+.enroll-content button {
   background: #007aff;
   color: #fff;
   border: none;
@@ -71,12 +65,12 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.enroll-content button:hover {
   background: #005bb5;
 }
 
 /* Course Requirements */
-.course-requirements {
+.enroll-content .course-requirements {
   background: #fff;
   padding: 20px;
   border: 1px solid #ddd;
@@ -84,25 +78,17 @@ button:hover {
   margin-bottom: 20px;
 }
 
-.course-requirements ul {
+.enroll-content .course-requirements ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.course-requirements ul li {
+.enroll-content .course-requirements ul li {
   margin: 10px 0;
 }
 
 /* Hidden Class */
-.hidden {
+.enroll-content .hidden {
   display: none;
-}
-
-/* Footer */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
 }

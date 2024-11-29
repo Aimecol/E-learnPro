@@ -47,9 +47,7 @@ enrollmentForm.addEventListener("submit", (e) => {
 
 // Handle modal actions
 confirmEnroll.addEventListener("click", () => {
-  alert("Enrollment confirmed! Thank you.");
-  confirmationModal.classList.add("hidden");
-  enrollmentForm.reset(); // Reset form
+  document.location.href = "./start_course.html";
 });
 
 cancelEnroll.addEventListener("click", () => {
