@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contact-container">
+      <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We’re here to help and answer any questions you might have.</p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Feel free to reach out to us for assistance or inquiries.</p>
+          <ul>
+            <li><i class="fas fa-phone-alt"></i> +123 456 7890</li>
+            <li><i class="fas fa-envelope"></i> support@example.com</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> 123 Main Street, City,
+              Country
+            </li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Send a Message</h2>
+          <form action="#">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                placeholder="Your Message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="chatbot">
+      <div class="chatbot-header">
+        <h3>Hi, how can we help?</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+      </div>
+      <div class="chatbot-messages">
+        <div class="message bot">
+          <p>Hello! I’m your assistant. How can I help you today?</p>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <div class="chatbot-button" onclick="toggleChatbot()">
+      <i class="fas fa-comments"></i>
+    </div>
+
+    <script>
+      // Chatbot Toggle
+      function toggleChatbot() {
+        const chatbot = document.querySelector(".chatbot");
+        chatbot.style.display =
+          chatbot.style.display === "flex" ? "none" : "flex";
+      }
+
+      // Add Message with Animation
+      function addMessage(type, text) {
+        const messagesContainer = document.querySelector(".chatbot-messages");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", type);
+
+        if (type === "bot") {
+          // Show typing indicator before bot responds
+          const typingDiv = document.createElement("div");
+          typingDiv.classList.add("message", "bot");
+          typingDiv.innerHTML = `<p class="typing-indicator">Typing</p>`;
+          messagesContainer.appendChild(typingDiv);
+
+          setTimeout(() => {
+            // Replace typing indicator with bot's message
+            typingDiv.remove();
+            messageDiv.innerHTML = `<p>${text}</p>`;
+            messagesContainer.appendChild(messageDiv);
+
+            // Scroll to the latest message
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          }, 1500); // Delay to simulate typing
+        } else {
+          messageDiv.innerHTML = `<p>${text}</p>`;
+          messagesContainer.appendChild(messageDiv);
+
+          // Scroll to the latest message
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }
+
+      // Send Message Event Listener
+      document
+        .getElementById("send-button")
+        .addEventListener("click", function () {
+          const inputField = document.getElementById("chat-input");
+          const message = inputField.value.trim();
+          if (message) {
+            // Add user message to chat
+            addMessage("user", message);
+
+            // Simulate bot response with typing animation
+            setTimeout(() => {
+              addMessage(
+                "bot",
+                "Thanks for your query! Our team will assist you shortly."
+              );
+            }, 2000);
+
+            // Clear input field
+            inputField.value = "";
+          }
+        });
+    </script>
+  </body>
+</html>

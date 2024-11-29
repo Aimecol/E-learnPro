@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Enrollment</title>
+    <link rel="stylesheet" href="../css/course_enrollment.css" />
+    <!-- <link rel="stylesheet" href="../css/nav.css" /> -->
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Enroll in a Course</h1>
+        <p>Select a course and provide your details to get started!</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="enrollment-form">
+        <div class="container">
+          <form id="enrollmentForm">
+            <!-- Course Selection -->
+            <div class="form-group">
+              <label for="courseSelect">Select a Course:</label>
+              <select id="courseSelect" name="course">
+                <option value="" disabled selected>Choose a course</option>
+                <option value="web-development">Web Development</option>
+                <option value="graphic-design">Graphic Design</option>
+                <option value="data-science">Data Science</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="digital-marketing">Digital Marketing</option>
+                <option value="ui-ux-design">UI/UX Design</option>
+                <option value="cyber-security">Cyber Security</option>
+                <option value="python-programming">Python Programming</option>
+                <option value="photography">Photography</option>
+              </select>
+            </div>
+
+            <!-- Requirements Section -->
+            <div class="course-requirements hidden">
+              <h3>Course Requirements:</h3>
+              <ul id="requirementsList"></ul>
+            </div>
+
+            <!-- User Information -->
+            <div class="form-group">
+              <label for="fullName">Full Name:</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+
+            <!-- Payment Section -->
+            <div class="form-group">
+              <label for="payment">Payment Method:</label>
+              <select id="payment" name="payment" required>
+                <option value="" disabled selected>
+                  Choose a payment method
+                </option>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+              </select>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="creditCardDetails" class="payment-details hidden">
+              <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input
+                  type="text"
+                  id="cardNumber"
+                  name="cardNumber"
+                  placeholder="Enter your card number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="cardExpiry">Expiry Date:</label>
+                <input
+                  type="text"
+                  id="cardExpiry"
+                  name="cardExpiry"
+                  placeholder="MM/YY"
+                />
+              </div>
+              <div class="form-group">
+                <label for="cardCVC">CVC:</label>
+                <input
+                  type="text"
+                  id="cardCVC"
+                  name="cardCVC"
+                  placeholder="Enter CVC"
+                />
+              </div>
+            </div>
+
+            <!-- PayPal Email -->
+            <div id="paypalDetails" class="payment-details hidden">
+              <div class="form-group">
+                <label for="paypalEmail">PayPal Email:</label>
+                <input
+                  type="email"
+                  id="paypalEmail"
+                  name="paypalEmail"
+                  placeholder="Enter your PayPal email"
+                />
+              </div>
+            </div>
+
+            <!-- Enrollment Confirmation Modal -->
+            <div id="confirmationModal" class="modal hidden">
+              <div class="modal-content">
+                <h2>Confirm Your Enrollment</h2>
+                <p><strong>Course:</strong> <span id="confirmCourse"></span></p>
+                <p><strong>Name:</strong> <span id="confirmName"></span></p>
+                <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+                <p>
+                  <strong>Payment Method:</strong>
+                  <span id="confirmPayment"></span>
+                </p>
+                <button id="confirmEnroll" class="enroll-btn">Confirm</button>
+                <button id="cancelEnroll" class="cancel-btn">Cancel</button>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button type="submit" class="enroll-btn">Enroll Now</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 E-Learning Platform. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/course_enrollment.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  color: #333;
+}
+
+.sidebar {
+  width: 250px;
+  background: #1e293b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 20px;
+  background: #0f172a;
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-menu li {
+  padding: 15px;
+  margin: 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-menu li.active {
+  background: #334155;
+  border-radius: 5px;
+}
+
+.nav-menu li:hover {
+  background: #475569;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background: #f1f5f9;
+}
+
+.content-header {
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.content-header h1 {
+  font-size: 1.8rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.stat-card h3 {
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+}
+
+.nav-category {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  padding: 10px 15px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+/* Dropdown Styles */
+.nav-menu .active {
+  background-color: #eef3fc;
+  border-left: 3px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+  display: none; /* Default hidden */
+}
+
+.dropdown-menu.hidden {
+  display: none;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}

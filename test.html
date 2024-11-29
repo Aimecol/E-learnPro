@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* General reset and body styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Courses Section Styling */
+      .courses {
+        padding: 4rem 1rem;
+      }
+
+      .course-cards {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .course-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 100%;
+        max-width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .course-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .course-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .course-info {
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .course-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: #007bff;
+        font-weight: 600;
+      }
+
+      .course-info p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .course-info a {
+        font-size: 1rem;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+        border: 2px solid #007bff;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .course-info a:hover {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .course-cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .course-card {
+          width: 90%;
+          max-width: none;
+        }
+      }
+
+      .unit.locked {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .unit.active {
+        display: block;
+      }
+
+      .unit {
+        display: none;
+      }
+
+      .quiz {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .quiz.locked {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #e0e0e0;
+        margin: 20px 0;
+      }
+
+      .progress {
+        height: 100%;
+        background: linear-gradient(to right, #4a90e2, #007aff);
+        width: 0%;
+        transition: width 0.6s ease-in-out;
+      }
+
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Navigation Bar Styles */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+      }
+
+      .navbar .logo a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        color: #ffcc00;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          flex-direction: column;
+          background-color: #0056b3;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          display: none;
+          padding: 10px;
+          border-radius: 8px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          cursor: pointer;
+          display: block;
+        }
+      }
+
+      /* Hamburger Menu Icon */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- <div class="logo">
+        <a href="index.html">YourLogo</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul> -->
+
+      <div class="logo">
+        <a href="index.html">YourLogo</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Welcome to Your Platform</h1>
+      <p>Your learning journey starts here!</p>
+    </header>
+
+    <main>
+      <p>Select a page from the navigation to get started.</p>
+    </main>
+
+    <section id="courses" class="courses">
+      <h2>Featured Courses</h2>
+      <div class="course-cards">
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 1" />
+          <div class="course-info">
+            <h3>Web Development</h3>
+            <p>Learn to build dynamic websites from scratch.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 2" />
+          <div class="course-info">
+            <h3>Data Science</h3>
+            <p>Master data analysis and visualization techniques.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 3" />
+          <div class="course-info">
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals using professional tools.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 2" />
+          <div class="course-info">
+            <h3>Data Science</h3>
+            <p>Master data analysis and visualization techniques.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 3" />
+          <div class="course-info">
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals using professional tools.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 2" />
+          <div class="course-info">
+            <h3>Data Science</h3>
+            <p>Master data analysis and visualization techniques.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="./images/icons/me.png" alt="Course 3" />
+          <div class="course-info">
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals using professional tools.</p>
+            <a href="#">View More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="course-panel">
+      <h1>Advanced Web Development Course</h1>
+      <p>Complete each unit to unlock the next!</p>
+
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+
+      <div class="units-container">
+        <!-- Unit 1 -->
+        <div class="unit active" id="unit1">
+          <h2>Unit 1: Introduction to HTML</h2>
+          <p>Learn the basics of HTML, including structure and elements.</p>
+          <button class="complete-unit-btn" data-unit="1">Complete Unit</button>
+          <div class="quiz locked">
+            <h3>Quiz: HTML Basics</h3>
+            <ul>
+              <li>
+                <label>
+                  <input type="radio" name="q1" value="correct" /> HTML stands
+                  for HyperText Markup Language.
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="q1" value="wrong" /> HTML stands for
+                  HyperText Markdown Language.
+                </label>
+              </li>
+            </ul>
+            <button class="quiz-submit-btn" data-unit="1" disabled>
+              Submit Quiz
+            </button>
+            <p>Time Remaining: <span id="timer1">02:00</span></p>
+          </div>
+        </div>
+
+        <!-- Unit 2 -->
+        <div class="unit locked" id="unit2">
+          <h2>Unit 2: CSS Fundamentals</h2>
+          <p>Understand the basics of styling web pages with CSS.</p>
+          <button class="complete-unit-btn" data-unit="2" disabled>
+            Complete Unit
+          </button>
+          <div class="quiz locked">
+            <h3>Quiz: CSS Basics</h3>
+            <ul>
+              <li>
+                <label>
+                  <input type="radio" name="q2" value="correct" /> CSS stands
+                  for Cascading Style Sheets.
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="q2" value="wrong" /> CSS stands for
+                  Creative Style Sheets.
+                </label>
+              </li>
+            </ul>
+            <button class="quiz-submit-btn" data-unit="2" disabled>
+              Submit Quiz
+            </button>
+            <p>Time Remaining: <span id="timer2">02:00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-buttons">
+        <button id="prev-btn" disabled>Previous</button>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script> -->
+    <script src="script.js"></script>
+  </body>
+</html>

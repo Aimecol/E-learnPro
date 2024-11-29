@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header.achievements-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+header.achievements-header h1 {
+  margin-bottom: 10px;
+}
+
+main.achievements-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #007bff;
+}
+
+/* Badges Section */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.badge {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.badge img {
+  width: 100px;
+  height: 100px;
+}
+
+.badge p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Certificates Section */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.certificate {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f4f9ff;
+}
+
+.certificate h3 {
+  margin-bottom: 10px;
+}
+
+.download-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Leaderboard Section */
+.leaderboard {
+  list-style: none;
+  padding: 0;
+}
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fefefe;
+}
+
+.leaderboard li:nth-child(1) {
+  background-color: #ffd700;
+}
+
+.leaderboard li:nth-child(2) {
+  background-color: #c0c0c0;
+}
+
+.leaderboard li:nth-child(3) {
+  background-color: #cd7f32;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+}

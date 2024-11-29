@@ -1,0 +1,186 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #e3f2fd, #90caf9);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.course-panel {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #007aff;
+}
+
+p {
+  text-align: center;
+  color: #555;
+}
+
+.unit h2 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.unit p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.unit.locked {
+  background: #f1f1f1;
+  opacity: 0.6;
+}
+
+.unit.locked h2,
+.unit.locked p {
+  color: #999;
+}
+
+button.complete-btn {
+  background: #007aff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button.complete-btn:hover:not(:disabled) {
+  background: #005ecb;
+}
+
+.quiz {
+  margin-top: 20px;
+  background: #f0f8ff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.quiz ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quiz ul li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.quiz ul li input {
+  margin-right: 10px;
+}
+
+.quiz-submit-btn {
+  margin-top: 15px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.quiz-submit-btn:hover {
+  background: #218838;
+}
+
+.timer {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d9534f;
+  margin: 10px 0;
+}
+.quiz.locked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.complete-unit-btn {
+  margin-top: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.complete-unit-btn:hover {
+  background: #0056b3;
+}
+
+.unit-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.unit {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.unit.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.unit.prev {
+  transform: translateX(-100%);
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 8px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(to right, #4a90e2, #007aff);
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  background: #f4f4f9;
+  color: #333;
+  transition: background 0.5s, color 0.5s;
+}
+
+.dark-mode {
+  background: #121212;
+  color: #fff;
+}
+
+/* Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #007bff;
+  transition: width 0.5s;
+  z-index: 1000;
+}
+
+.unit-page {
+  display: flex;
+  width: 100%;
+}
+
+.chapter-nav {
+  width: 20%;
+  background: #0056b3;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chapter-nav h3 {
+  margin: 0 0 10px;
+}
+
+.chapter-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chapter-nav li {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.chapter-nav li.active,
+.chapter-nav li:hover {
+  background: #ff6347;
+  color: white;
+}
+
+.chapter-nav li.completed {
+  background: #28a745;
+  color: white;
+}
+
+.chapter-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#chapter-title {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+#chapter-body {
+  flex: 1;
+}
+
+.chapter-controls {
+  margin-top: 20px;
+  text-align: right;
+}
+
+button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+/* Video Styling */
+iframe {
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 2px solid #007bff;
+}
+
+/* Chapter Content Enhancements */
+.chapter-content h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.chapter-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.chapter-content ul li {
+  background: #f8f9fa;
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 4px solid #007bff;
+}
+
+.chapter-content ul li b {
+  color: #007bff;
+}
+
+/* General Styling */
+.chapter {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #f9f9f9;
+}
+
+.chapter h2 {
+  color: #007bff;
+  font-size: 2rem;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Quiz Styling */
+.quiz-result {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#completion-badge {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  background: #f4f4f4;
+  border: 2px dashed #007bff;
+  display: none;
+}
+
+#completion-badge img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+#completion-badge h2 {
+  color: #28a745;
+  font-size: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .chapter-nav {
+    width: 100%;
+    display: none;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 5px;
+  }
+  .chapter-nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .chapter-content {
+    padding: 10px;
+  }
+
+  .chapter-nav li {
+    flex: 1;
+    text-align: center;
+  }
+}

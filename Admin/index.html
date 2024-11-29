@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - SPA</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Admin Panel</h2>
+        <p>Welcome, Admin!</p>
+      </div>
+      <nav class="nav-menu">
+        <h3 class="nav-category">Dashboard</h3>
+        <ul>
+          <li data-page="dashboard" class="active">
+            <i class="fas fa-home"></i> Dashboard
+          </li>
+        </ul>
+
+        <h3 class="nav-category">Management</h3>
+        <ul>
+          <li class="dropdown">
+            <div class="dropdown-header" data-dropdown="users">
+              <i class="fas fa-users"></i> Users
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+            <ul class="dropdown-menu hidden">
+              <li data-page="add-user">
+                <i class="fas fa-user-plus"></i> Add User
+              </li>
+              <li data-page="view-users">
+                <i class="fas fa-eye"></i> View Users
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <div class="dropdown-header" data-dropdown="courses">
+              <i class="fas fa-book"></i> Courses
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+            <ul class="dropdown-menu hidden">
+              <li data-page="add-course">
+                <i class="fas fa-plus-circle"></i> Add Course
+              </li>
+              <li data-page="view-courses">
+                <i class="fas fa-list"></i> View Courses
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <div class="dropdown-header" data-dropdown="payments">
+              <i class="fas fa-credit-card"></i> Payments
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+            <ul class="dropdown-menu hidden">
+              <li data-page="payment-history">
+                <i class="fas fa-history"></i> Payment History
+              </li>
+              <li data-page="manage-payments">
+                <i class="fas fa-cogs"></i> Manage Payments
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3 class="nav-category">Reports</h3>
+        <ul>
+          <li data-page="reports"><i class="fas fa-chart-bar"></i> Reports</li>
+        </ul>
+
+        <h3 class="nav-category">Support</h3>
+        <ul>
+          <li class="dropdown">
+            <div class="dropdown-header" data-dropdown="support">
+              <i class="fas fa-life-ring"></i> Support
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+            <ul class="dropdown-menu hidden">
+              <li data-page="support-tickets">
+                <i class="fas fa-ticket-alt"></i> Support Tickets
+              </li>
+              <li data-page="faqs">
+                <i class="fas fa-question-circle"></i> FAQs
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3 class="nav-category">Settings</h3>
+        <ul>
+          <li data-page="settings"><i class="fas fa-cogs"></i> Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="content-header">
+        <h1 id="page-title">Dashboard</h1>
+      </header>
+      <section class="content-body" id="content-body">
+        <!-- Dashboard Content -->
+        <div id="dashboard" class="page">
+          <div class="stat-card">
+            <h3>Users</h3>
+            <p>Total: <span>1450</span></p>
+          </div>
+          <div class="stat-card">
+            <h3>Revenue</h3>
+            <p>$ <span>12,450</span></p>
+          </div>
+          <div class="stat-card">
+            <h3>Active Courses</h3>
+            <p><span>25</span></p>
+          </div>
+        </div>
+
+        <!-- Users Content -->
+        <div id="users" class="page hidden">
+          <h1>Manage Users</h1>
+          <button class="btn-add">+ Add New User</button>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Jane Doe</td>
+                <td>jane.doe@example.com</td>
+                <td>Student</td>
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Courses Content -->
+        <div id="courses" class="page hidden">
+          <h2>Manage Courses</h2>
+          <button class="btn-add">+ Add Course</button>
+          <ul class="course-list">
+            <li>Introduction to Web Development</li>
+            <li>Advanced CSS Techniques</li>
+          </ul>
+        </div>
+
+        <div id="payments" class="page hidden">
+          <h1>Manage Payments</h1>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Transaction ID</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TXN001</td>
+                <td>Jane Doe</td>
+                <td>$99</td>
+                <td>Completed</td>
+                <td>2024-11-25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="reports" class="page hidden">
+          <h1>Reports</h1>
+          <p>
+            View detailed insights about user engagement, course performance,
+            and revenue.
+          </p>
+          <ul>
+            <li>Weekly Active Users</li>
+            <li>Course Completion Rates</li>
+            <li>Monthly Revenue Breakdown</li>
+          </ul>
+        </div>
+
+        <div id="support-tickets" class="page hidden">
+          <h1>Support Tickets</h1>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Ticket ID</th>
+                <th>User</th>
+                <th>Issue</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SUP001</td>
+                <td>John Doe</td>
+                <td>Payment not reflecting</td>
+                <td>Pending</td>
+                <td><button>Resolve</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="faqs" class="page hidden">
+          <h1>Frequently Asked Questions</h1>
+          <p>Manage FAQs displayed on the user-facing site.</p>
+          <button class="btn-add">+ Add FAQ</button>
+          <ul class="faq-list">
+            <li>How to reset my password?</li>
+            <li>How to access purchased courses?</li>
+          </ul>
+        </div>
+
+        <div id="settings" class="page hidden">
+          <h1>System Settings</h1>
+          <p>Customize the platform's configurations and permissions.</p>
+          <button>Update Settings</button>
+        </div>
+
+        <!-- Additional Sections (Payments, Reports, Support, Settings) -->
+        <!-- Add similar structure -->
+      </section>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>

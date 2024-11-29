@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor Control Panel</title>
+    <link rel="stylesheet" href="../css/instructor-panel.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="control-panel">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Instructor Panel</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#dashboard" data-section="dashboard"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="#courses" data-section="courses"
+                ><i class="fas fa-book"></i> Manage Courses</a
+              >
+            </li>
+            <li>
+              <a href="#students" data-section="students"
+                ><i class="fas fa-users"></i> Manage Students</a
+              >
+            </li>
+            <li>
+              <a href="#quizzes" data-section="quizzes"
+                ><i class="fas fa-file-alt"></i> Manage Quizzes</a
+              >
+            </li>
+            <li>
+              <a href="#support" data-section="support"
+                ><i class="fas fa-life-ring"></i> Support</a
+              >
+            </li>
+            <li>
+              <a href="#profile" data-section="profile"
+                ><i class="fas fa-user-cog"></i> Profile Settings</a
+              >
+            </li>
+            <li>
+              <a href="#logout" data-section="logout"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Sections -->
+        <section id="dashboard" class="content-section active">
+          <h1>Dashboard</h1>
+          <p>
+            Welcome to the Instructor Dashboard. Here's a summary of your
+            activity.
+          </p>
+          <div class="dashboard-cards">
+            <div class="card">
+              <h3>Students</h3>
+              <p>120</p>
+            </div>
+            <div class="card">
+              <h3>Courses</h3>
+              <p>10</p>
+            </div>
+            <div class="card">
+              <h3>Quizzes</h3>
+              <p>25</p>
+            </div>
+            <div class="card">
+              <h3>Messages</h3>
+              <p>15</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="courses" class="content-section">
+          <h1>Manage Courses</h1>
+          <button class="add-course-btn">
+            <i class="fas fa-plus-circle"></i> Add Course
+          </button>
+          <table>
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Students Enrolled</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>JavaScript Essentials</td>
+                <td>45</td>
+                <td>Active</td>
+                <td>
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>HTML & CSS Basics</td>
+                <td>60</td>
+                <td>Active</td>
+                <td>
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="students" class="content-section">
+          <h1>Manage Students</h1>
+          <input type="text" placeholder="Search for a student..." />
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Progress</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>john.doe@example.com</td>
+                <td>75%</td>
+                <td><button class="message-btn">Message</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="quizzes" class="content-section">
+          <h1>Manage Quizzes</h1>
+          <button class="add-quiz-btn">
+            <i class="fas fa-plus-circle"></i> Add Quiz
+          </button>
+          <p>
+            Manage your quizzes here, including adding, updating, and deleting
+            quizzes.
+          </p>
+        </section>
+
+        <section id="support" class="content-section">
+          <h1>Support</h1>
+          <p>Have any issues? Contact support or check our FAQ.</p>
+        </section>
+
+        <section id="profile" class="content-section">
+          <h1>Profile Settings</h1>
+          <p>Manage your profile details and settings here.</p>
+        </section>
+
+        <section id="logout" class="content-section">
+          <h1>Logout</h1>
+          <p>Thank you for using the platform. See you soon!</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/instructor-panel.js"></script>
+  </body>
+</html>

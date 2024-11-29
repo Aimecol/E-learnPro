@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/unit.css" />
+  </head>
+  <body>
+    <div class="unit-page">
+      <!-- Progress Bar -->
+      <div id="progress-bar"></div>
+
+      <div id="completion-badge" class="hidden">
+        <img src="../images/icons/me.png" alt="Completion Badge" />
+        <h2>Congratulations! You've completed this unit!</h2>
+      </div>
+
+      <!-- Sidebar Navigation for Chapters -->
+      <aside class="chapter-nav">
+        <h3>Chapters</h3>
+        <ul id="chapter-list"></ul>
+        <button id="toggle-theme">Switch to Dark Mode</button>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="chapter-content">
+        <div id="chapter-container">
+          <h1 id="chapter-title"></h1>
+          <div id="chapter-body"></div>
+          <div class="chapter-controls">
+            <button id="prev-chapter" disabled>Previous</button>
+            <button id="next-chapter">Next</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/unit.js"></script>
+  </body>
+</html>

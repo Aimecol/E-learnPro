@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Forum</title>
+    <link rel="stylesheet" href="../css/forum.css" />
+  </head>
+  <body>
+    <header class="forum-header">
+      <h1>Community Forum</h1>
+    </header>
+
+    <main class="forum-container">
+      <!-- Create New Thread Section -->
+      <section class="new-thread">
+        <h2>Create a New Thread</h2>
+        <form class="thread-form">
+          <input
+            type="text"
+            placeholder="Thread Title"
+            class="thread-title"
+            required
+          />
+          <textarea
+            placeholder="Type your question or discussion topic..."
+            class="thread-content"
+            required
+          ></textarea>
+          <button type="submit" class="post-thread-btn">Post Thread</button>
+        </form>
+      </section>
+
+      <!-- Forum Threads Section -->
+      <section class="forum-threads">
+        <h2>Recent Threads</h2>
+        <div class="thread-card">
+          <div class="thread-details">
+            <h3>How do I integrate APIs into my project?</h3>
+            <p class="thread-meta">
+              Posted by <strong>Jane Doe</strong> on Nov 20, 2024
+            </p>
+          </div>
+          <div class="thread-actions">
+            <button class="view-thread-btn">View</button>
+            <span class="thread-comments">5 Comments</span>
+          </div>
+        </div>
+
+        <div class="thread-card">
+          <div class="thread-details">
+            <h3>Best resources to learn JavaScript?</h3>
+            <p class="thread-meta">
+              Posted by <strong>John Smith</strong> on Nov 18, 2024
+            </p>
+          </div>
+          <div class="thread-actions">
+            <button class="view-thread-btn">View</button>
+            <span class="thread-comments">12 Comments</span>
+          </div>
+        </div>
+        <!-- Add more threads -->
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Your Learning Platform. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>

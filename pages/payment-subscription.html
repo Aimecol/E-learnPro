@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment & Subscription</title>
+  <link rel="stylesheet" href="../css/payment-subscription.css">
+</head>
+<body>
+  <header class="payment-header">
+    <h1>Payment & Subscription</h1>
+    <p>Choose a plan that suits your learning needs.</p>
+  </header>
+
+  <main class="payment-container">
+    <!-- Pricing Plans -->
+    <section class="pricing-section">
+      <h2>Pricing Plans</h2>
+      <div class="pricing-cards">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <h3>Free Plan</h3>
+          <p>$0/month</p>
+          <ul>
+            <li>Access to basic courses</li>
+            <li>Community support</li>
+            <li>Limited progress tracking</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+        <!-- Standard Plan -->
+        <div class="pricing-card">
+          <h3>Standard Plan</h3>
+          <p>$19.99/month</p>
+          <ul>
+            <li>Access to all courses</li>
+            <li>Certificate of completion</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+        <!-- Premium Plan -->
+        <div class="pricing-card">
+          <h3>Premium Plan</h3>
+          <p>$49.99/month</p>
+          <ul>
+            <li>All Standard Plan features</li>
+            <li>One-on-one mentorship</li>
+            <li>Advanced analytics</li>
+          </ul>
+          <button class="select-plan-btn">Select Plan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Form -->
+    <section class="payment-form-section">
+      <h2>Secure Payment</h2>
+      <form class="payment-form">
+        <input type="text" placeholder="Cardholder Name" required>
+        <input type="text" placeholder="Card Number" maxlength="16" required>
+        <div class="form-row">
+          <input type="text" placeholder="MM/YY" maxlength="5" required>
+          <input type="text" placeholder="CVC" maxlength="3" required>
+        </div>
+        <button type="submit" class="payment-btn">Pay Now</button>
+      </form>
+    </section>
+
+    <!-- Invoice History -->
+    <section class="invoice-history-section">
+      <h2>Invoice History</h2>
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>Invoice #</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#001</td>
+            <td>2024-01-15</td>
+            <td>$19.99</td>
+            <td>Paid</td>
+            <td><a href="#" class="download-link">Download</a></td>
+          </tr>
+          <tr>
+            <td>#002</td>
+            <td>2024-02-15</td>
+            <td>$19.99</td>
+            <td>Pending</td>
+            <td>---</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Learning Platform. All rights reserved.</p>
+  </footer>
+</body>
+</html>
