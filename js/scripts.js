@@ -35,3 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const learnBtn = document.querySelectorAll("#learn-btn");
+
+learnBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.location.href = "./pages/course_detail.html";
+  });
+});

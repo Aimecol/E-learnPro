@@ -6,7 +6,7 @@ document.getElementById("login-form").addEventListener("submit", (e) => {
   // Basic Validation (expand with actual backend integration)
   if (email && password) {
     alert("Login successful! Redirecting...");
-    window.location.href = "../index.html"; // Redirect to dashboard
+    window.location.href = "../Admin/index.html"; // Redirect to dashboard
   } else {
     alert("Please fill in all fields.");
   }

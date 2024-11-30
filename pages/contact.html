@@ -47,56 +47,89 @@
       </div>
     </header>
 
-    <div class="contact-container">
+    <div class="container">
       <div class="contact-header">
         <h1>Contact Us</h1>
-        <p>We’re here to help and answer any questions you might have.</p>
+        <p>
+          Have questions? We'd love to hear from you. Send us a message and
+          we'll respond as soon as possible.
+        </p>
       </div>
 
-      <div class="contact-content">
+      <div class="contact-layout">
         <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>Feel free to reach out to us for assistance or inquiries.</p>
-          <ul>
-            <li><i class="fas fa-phone-alt"></i> +123 456 7890</li>
-            <li><i class="fas fa-envelope"></i> support@example.com</li>
-            <li>
-              <i class="fas fa-map-marker-alt"></i> 123 Main Street, City,
-              Country
-            </li>
-          </ul>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-content">
+              <h3>Address</h3>
+              <p>
+                123 Business Avenue<br />Suite 100<br />San Francisco, CA 94107
+              </p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-phone"></i></div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p>+1 (555) 123-4567<br />Mon-Fri from 8am to 5pm</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>support@company.com<br />sales@company.com</p>
+            </div>
           </div>
         </div>
 
         <div class="contact-form">
-          <h2>Send a Message</h2>
-          <form action="#">
-            <div class="form-group">
-              <input type="text" id="name" placeholder="Your Name" required />
+          <form id="contactForm" onsubmit="return handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" required />
+              </div>
             </div>
+
             <div class="form-group">
-              <input
-                type="email"
-                id="email"
-                placeholder="Your Email"
-                required
-              />
+              <label for="email">Email</label>
+              <input type="email" id="email" required />
             </div>
+
             <div class="form-group">
-              <textarea
-                id="message"
-                placeholder="Your Message"
-                rows="5"
-                required
-              ></textarea>
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" required />
             </div>
-            <button type="submit">Send Message</button>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+            <div id="successMessage" class="success-message">
+              Thank you! Your message has been sent successfully.
+            </div>
           </form>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4498020781675!2d29.62994437358665!3d-1.5007169358951762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dc5b0045f53823%3A0x18d4438b40f8dcac!2sMusanze%20city%20rwanda!5e0!3m2!1sen!2srw!4v1732935358284!5m2!1sen!2srw"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -175,5 +208,6 @@
     </footer>
 
     <script src="../js/nav.js"></script>
+    <script src="../js/contact.js"></script>
   </body>
 </html>

@@ -14,13 +14,13 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h2>Admin Panel</h2>
+        <h2><a href="../index.html">E-LearnPro</a></h2>
         <p>Welcome, Admin!</p>
       </div>
       <nav class="nav-menu">
         <h3 class="nav-category">Dashboard</h3>
         <ul>
-          <li data-page="dashboard" class="active">
+          <li data-page="dashboard" class="usual active">
             <i class="fas fa-home"></i> Dashboard
           </li>
         </ul>
@@ -75,7 +75,9 @@
 
         <h3 class="nav-category">Reports</h3>
         <ul>
-          <li data-page="reports"><i class="fas fa-chart-bar"></i> Reports</li>
+          <li data-page="reports" class="usual">
+            <i class="fas fa-chart-bar"></i> Reports
+          </li>
         </ul>
 
         <h3 class="nav-category">Support</h3>
@@ -98,7 +100,9 @@
 
         <h3 class="nav-category">Settings</h3>
         <ul>
-          <li data-page="settings"><i class="fas fa-cogs"></i> Settings</li>
+          <li data-page="settings" class="usual">
+            <i class="fas fa-cogs"></i> Settings
+          </li>
         </ul>
       </nav>
     </aside>
@@ -110,141 +114,971 @@
       </header>
       <section class="content-body" id="content-body">
         <!-- Dashboard Content -->
-        <div id="dashboard" class="page">
-          <div class="stat-card">
-            <h3>Users</h3>
-            <p>Total: <span>1450</span></p>
+        <section id="dashboard" class="page">
+          <div class="dashboard-header">
+            <h1 id="welcome-message">Welcome, Admin!</h1>
+            <p id="current-date-time">Today's Date: <span></span></p>
           </div>
-          <div class="stat-card">
-            <h3>Revenue</h3>
-            <p>$ <span>12,450</span></p>
+
+          <div class="dashboard-metrics">
+            <div class="metric-card">
+              <h2>Total Users</h2>
+              <p>1,234</p>
+            </div>
+            <div class="metric-card">
+              <h2>Active Courses</h2>
+              <p>45</p>
+            </div>
+            <div class="metric-card">
+              <h2>Total Earnings</h2>
+              <p>$12,345</p>
+            </div>
+            <div class="metric-card">
+              <h2>Pending Tasks</h2>
+              <p>3</p>
+            </div>
           </div>
-          <div class="stat-card">
-            <h3>Active Courses</h3>
-            <p><span>25</span></p>
+
+          <div class="dashboard-charts">
+            <div class="chart-container">
+              <h3>Course Engagement</h3>
+              <canvas id="engagementChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Revenue Trends</h3>
+              <canvas id="revenueChart"></canvas>
+            </div>
           </div>
-        </div>
+
+          <div class="recent-activities">
+            <h2>Recent Activities</h2>
+            <ul>
+              <li>User John Doe completed "Intro to Python" course.</li>
+              <li>New student registered: Jane Smith.</li>
+              <li>Instructor uploaded new material for "Advanced Java".</li>
+            </ul>
+          </div>
+
+          <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <button class="action-btn">Add Course</button>
+            <button class="action-btn">Manage Users</button>
+            <button class="action-btn">View Reports</button>
+          </div>
+        </section>
 
         <!-- Users Content -->
-        <div id="users" class="page hidden">
-          <h1>Manage Users</h1>
-          <button class="btn-add">+ Add New User</button>
-          <table class="data-table">
+        <section id="add-user" class="page hidden">
+          <div class="page-header">
+            <h1>Add New User</h1>
+            <p>
+              Add instructors, students, editors, or semi-admins to the system.
+            </p>
+          </div>
+
+          <div class="add-user-form-container">
+            <form id="add-user-form">
+              <!-- User Type Selector -->
+              <div class="form-group">
+                <label for="user-type">User Type</label>
+                <select id="user-type" required>
+                  <option value="" disabled selected>Select User Type</option>
+                  <option value="student">Student</option>
+                  <option value="instructor">Instructor</option>
+                  <option value="editor">Editor</option>
+                  <option value="semi-admin">Semi-Admin</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Fields -->
+              <div id="dynamic-fields">
+                <!-- Common Fields -->
+                <div class="form-group">
+                  <label for="full-name">Full Name</label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email address"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                  />
+                </div>
+
+                <!-- Additional Fields (Populated Dynamically) -->
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add User</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="view-users" class="page hidden">
+          <div class="page-header">
+            <h1>View Users</h1>
+            <p>Search, filter, and view all users in the system.</p>
+          </div>
+
+          <!-- Search and Filter Section -->
+          <div class="search-filter-container">
+            <input
+              type="text"
+              id="search-bar"
+              placeholder="Search users by name, email, or ID..."
+              oninput="handleSearch()"
+            />
+
+            <select id="user-type-filter" onchange="filterUsers()">
+              <option value="all">All Users</option>
+              <option value="student">Students</option>
+              <option value="instructor">Instructors</option>
+              <option value="editor">Editors</option>
+              <option value="semi-admin">Semi-Admins</option>
+            </select>
+          </div>
+
+          <!-- Users Display Section -->
+          <div id="users-container">
+            <!-- Students Section -->
+            <div class="user-section" id="students-section">
+              <h2>Students</h2>
+              <div class="user-list" id="students-list"></div>
+            </div>
+
+            <!-- Instructors Section -->
+            <div class="user-section" id="instructors-section">
+              <h2>Instructors</h2>
+              <div class="user-list" id="instructors-list"></div>
+            </div>
+
+            <!-- Editors Section -->
+            <div class="user-section" id="editors-section">
+              <h2>Editors</h2>
+              <div class="user-list" id="editors-list"></div>
+            </div>
+
+            <!-- Semi-Admins Section -->
+            <div class="user-section" id="semi-admins-section">
+              <h2>Semi-Admins</h2>
+              <div class="user-list" id="semi-admins-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Courses Content -->
+        <section id="add-course" class="add-course-section page hidden">
+          <h1 class="section-title">Add New Course</h1>
+          <form class="add-course-form">
+            <!-- Course Title -->
+            <div class="form-group">
+              <label for="course-title">Course Title</label>
+              <input
+                type="text"
+                id="course-title"
+                placeholder="Enter course title"
+                required
+              />
+            </div>
+
+            <!-- Course Description -->
+            <div class="form-group">
+              <label for="course-description">Course Description</label>
+              <textarea
+                id="course-description"
+                rows="5"
+                placeholder="Enter course description"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Course Category -->
+            <div class="form-group">
+              <label for="course-category">Category</label>
+              <select id="course-category" required>
+                <option value="">Select a category</option>
+                <option value="technology">Technology</option>
+                <option value="business">Business</option>
+                <option value="arts">Arts</option>
+                <option value="science">Science</option>
+                <option value="health">Health</option>
+              </select>
+            </div>
+
+            <!-- Assign Instructor -->
+            <div class="form-group">
+              <label for="course-instructor">Assign Instructor</label>
+              <select id="course-instructor" required>
+                <option value="">Select an instructor</option>
+                <option value="1">Alice Johnson</option>
+                <option value="2">Bob Smith</option>
+                <option value="3">Cathy Green</option>
+              </select>
+            </div>
+
+            <!-- Course Duration -->
+            <div class="form-group">
+              <label for="course-duration">Duration (in hours)</label>
+              <input
+                type="number"
+                id="course-duration"
+                placeholder="Enter course duration"
+                required
+              />
+            </div>
+
+            <!-- Upload Media -->
+            <div class="form-group">
+              <label for="course-media">Upload Course Media</label>
+              <input
+                type="file"
+                id="course-media"
+                accept="image/*,video/*"
+                required
+              />
+            </div>
+
+            <!-- Course Price -->
+            <div class="form-group">
+              <label for="course-price">Price ($)</label>
+              <input
+                type="number"
+                id="course-price"
+                placeholder="Enter price (leave 0 for free)"
+                required
+              />
+            </div>
+
+            <!-- Publish Course -->
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="publish-course" />
+              <label for="publish-course"
+                >Publish this course immediately</label
+              >
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Add Course</button>
+          </form>
+        </section>
+
+        <section id="view-courses" class="view-courses-section page hidden">
+          <h1 class="section-title">View Courses</h1>
+          <div class="page-header">
+            <h1>Add New User</h1>
+            <p>
+              Add instructors, students, editors, or semi-admins to the system.
+            </p>
+          </div>
+
+          <!-- Search and Filter Bar -->
+          <div class="search-filter-bar">
+            <input
+              type="text"
+              id="search-bar"
+              placeholder="Search courses by title..."
+            />
+            <select id="filter-category">
+              <option value="">Filter by Category</option>
+              <option value="technology">Technology</option>
+              <option value="business">Business</option>
+              <option value="arts">Arts</option>
+              <option value="science">Science</option>
+              <option value="health">Health</option>
+            </select>
+            <select id="filter-instructor">
+              <option value="">Filter by Instructor</option>
+              <option value="1">Alice Johnson</option>
+              <option value="2">Bob Smith</option>
+              <option value="3">Cathy Green</option>
+            </select>
+          </div>
+
+          <!-- Courses List -->
+          <div class="courses-list">
+            <!-- Single Course Card -->
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="1"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Introduction to Programming</h3>
+                <p class="course-description">
+                  Learn the basics of programming using Python.
+                </p>
+                <p class="course-meta">
+                  Category: <strong>Technology</strong> | Instructor:
+                  <strong>Alice Johnson</strong>
+                </p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="science"
+              data-instructor="3"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Data Science Essentials</h3>
+                <p>Instructor: Dr. Alice Watson</p>
+                <p>Category: Data Science</p>
+                <p>Enrolled: 820 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="3"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Introduction to AI</h3>
+                <p>Instructor: Prof. Martin King</p>
+                <p>Category: Artificial Intelligence</p>
+                <p>Enrolled: 1,200 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="2"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Cybersecurity Basics</h3>
+                <p>Instructor: Sarah Lee</p>
+                <p>Category: Cybersecurity</p>
+                <p>Enrolled: 580 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="2"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Mastering JavaScript</h3>
+                <p>Instructor: Emily Clarke</p>
+                <p>Category: Web Development</p>
+                <p>Enrolled: 950 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="1"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">Python for Beginners</h3>
+                <p>Instructor: James Wright</p>
+                <p>Category: Programming</p>
+                <p>Enrolled: 2,300 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="course-card"
+              data-category="technology"
+              data-instructor="1"
+            >
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Course Thumbnail"
+                class="course-thumbnail"
+              />
+              <div class="course-details">
+                <h3 class="course-title">UI/UX Design Fundamentals</h3>
+                <p>Instructor: Anna Cooper</p>
+                <p>Category: Design</p>
+                <p>Enrolled: 620 students</p>
+                <div class="course-actions">
+                  <button class="btn btn-view">View Details</button>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- More Course Cards -->
+            <!-- Mock courses will be added dynamically -->
+          </div>
+        </section>
+
+        <section id="payment-history" class="page hidden">
+          <div class="payment-history-container">
+            <header class="payment-header">
+              <h2>Payment History</h2>
+              <div class="payment-actions">
+                <input
+                  type="text"
+                  id="payment-search"
+                  class="search-bar"
+                  placeholder="Search by User or Transaction ID..."
+                />
+                <select id="payment-filter" class="filter-dropdown">
+                  <option value="all">All Payments</option>
+                  <option value="completed">Completed</option>
+                  <option value="pending">Pending</option>
+                  <option value="failed">Failed</option>
+                </select>
+              </div>
+            </header>
+            <table class="payment-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>User</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="payment-history-body">
+                <!-- Mock Data Rows -->
+                <tr>
+                  <td>TX12345</td>
+                  <td>John Doe</td>
+                  <td>$50.00</td>
+                  <td>2024-11-01</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>TX67890</td>
+                  <td>Jane Smith</td>
+                  <td>$75.00</td>
+                  <td>2024-11-03</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>TX54321</td>
+                  <td>Mark Taylor</td>
+                  <td>$100.00</td>
+                  <td>2024-11-05</td>
+                  <td><span class="status failed">Failed</span></td>
+                </tr>
+                <tr>
+                  <td>#1001</td>
+                  <td>John Doe</td>
+                  <td>$120.00</td>
+                  <td>2024-11-25</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#1002</td>
+                  <td>Jane Smith</td>
+                  <td>$95.00</td>
+                  <td>2024-11-24</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>#1003</td>
+                  <td>User 1003</td>
+                  <td>$123.45</td>
+                  <td>2024-11-20</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#1004</td>
+                  <td>User 1004</td>
+                  <td>$87.65</td>
+                  <td>2024-11-18</td>
+                  <td><span class="status failed">Failed</span></td>
+                </tr>
+                <tr>
+                  <td>#1005</td>
+                  <td>User 1005</td>
+                  <td>$101.25</td>
+                  <td>2024-11-15</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>#1004</td>
+                  <td>User 1004</td>
+                  <td>$87.65</td>
+                  <td>2024-11-18</td>
+                  <td><span class="status failed">Failed</span></td>
+                </tr>
+                <tr>
+                  <td>#1005</td>
+                  <td>User 1005</td>
+                  <td>$101.25</td>
+                  <td>2024-11-15</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>#1004</td>
+                  <td>User 1004</td>
+                  <td>$87.65</td>
+                  <td>2024-11-18</td>
+                  <td><span class="status failed">Failed</span></td>
+                </tr>
+                <tr>
+                  <td>#1005</td>
+                  <td>User 1005</td>
+                  <td>$101.25</td>
+                  <td>2024-11-15</td>
+                  <td><span class="status pending">Pending</span></td>
+                </tr>
+                <!-- More rows can be dynamically added here -->
+              </tbody>
+            </table>
+            <div class="pagination">
+              <button class="page-btn prev" id="prev-page" disabled>
+                &laquo; Previous
+              </button>
+              <span class="page-info" id="pagination-info">Page 1 of 10</span>
+              <button class="page-btn next" id="next-page">Next &raquo;</button>
+            </div>
+          </div>
+        </section>
+
+        <div id="manage-payments" class="page hidden">
+          <div class="section-header">
+            <h2>Manage Payments</h2>
+            <input
+              type="text"
+              id="search-payment"
+              placeholder="Search by User or Payment ID..."
+            />
+          </div>
+
+          <table class="manage-payments-table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>Payment ID</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="manage-payments-body">
+              <!-- Mock Payment Data -->
               <tr>
-                <td>001</td>
-                <td>Jane Doe</td>
-                <td>jane.doe@example.com</td>
-                <td>Student</td>
+                <td>#2001</td>
+                <td>John Doe</td>
+                <td>$120.00</td>
+                <td>2024-11-25</td>
+                <td><span class="status completed">Completed</span></td>
                 <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button class="btn view-btn" data-id="2001">View</button>
+                  <button class="btn edit-btn" data-id="2001">Edit</button>
+                  <button class="btn delete-btn" data-id="2001">Delete</button>
                 </td>
               </tr>
+              <tr>
+                <td>#2002</td>
+                <td>Jane Smith</td>
+                <td>$95.00</td>
+                <td>2024-11-24</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>
+                  <button class="btn view-btn" data-id="2002">View</button>
+                  <button class="btn edit-btn" data-id="2002">Edit</button>
+                  <button class="btn delete-btn" data-id="2002">Delete</button>
+                </td>
+              </tr>
+              <!-- More Rows Here -->
             </tbody>
           </table>
-        </div>
 
-        <!-- Courses Content -->
-        <div id="courses" class="page hidden">
-          <h2>Manage Courses</h2>
-          <button class="btn-add">+ Add Course</button>
-          <ul class="course-list">
-            <li>Introduction to Web Development</li>
-            <li>Advanced CSS Techniques</li>
-          </ul>
-        </div>
-
-        <div id="payments" class="page hidden">
-          <h1>Manage Payments</h1>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Transaction ID</th>
-                <th>User</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>TXN001</td>
-                <td>Jane Doe</td>
-                <td>$99</td>
-                <td>Completed</td>
-                <td>2024-11-25</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Pagination -->
+          <div class="pagination">
+            <button id="manage-prev-page" disabled>&laquo; Previous</button>
+            <span id="manage-pagination-info">Page 1 of 10</span>
+            <button id="manage-next-page">Next &raquo;</button>
+          </div>
         </div>
 
         <div id="reports" class="page hidden">
-          <h1>Reports</h1>
-          <p>
-            View detailed insights about user engagement, course performance,
-            and revenue.
-          </p>
-          <ul>
-            <li>Weekly Active Users</li>
-            <li>Course Completion Rates</li>
-            <li>Monthly Revenue Breakdown</li>
-          </ul>
+          <div class="section-header">
+            <h2>Reports and Analytics</h2>
+            <div class="report-filters">
+              <label for="report-type">Report Type:</label>
+              <select id="report-type">
+                <option value="users">User Reports</option>
+                <option value="courses">Course Reports</option>
+                <option value="payments">Payment Reports</option>
+              </select>
+
+              <label for="date-range">Date Range:</label>
+              <input type="date" id="start-date" />
+              <input type="date" id="end-date" />
+              <button id="apply-filters">Apply Filters</button>
+            </div>
+          </div>
+
+          <div class="report-overview">
+            <div class="overview-card">
+              <h3>Total Users</h3>
+              <p id="total-users">1,234</p>
+            </div>
+            <div class="overview-card">
+              <h3>Courses Enrolled</h3>
+              <p id="total-courses">567</p>
+            </div>
+            <div class="overview-card">
+              <h3>Total Revenue</h3>
+              <p id="total-revenue">$23,456.00</p>
+            </div>
+            <div class="overview-card">
+              <h3>Payments Processed</h3>
+              <p id="total-payments">789</p>
+            </div>
+          </div>
+
+          <div id="report-chart" class="chart-container">
+            <!-- Placeholder for Chart -->
+            <canvas id="report-chart-canvas"></canvas>
+          </div>
+
+          <div id="report-table">
+            <h3>Detailed Report</h3>
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="report-table-body">
+                <!-- Mock Data -->
+                <tr>
+                  <td>#1001</td>
+                  <td>John Doe</td>
+                  <td>User</td>
+                  <td>2024-11-25</td>
+                  <td>Active</td>
+                  <td>$120.00</td>
+                </tr>
+                <tr>
+                  <td>#1002</td>
+                  <td>Jane Smith</td>
+                  <td>Course</td>
+                  <td>2024-11-24</td>
+                  <td>Completed</td>
+                  <td>$95.00</td>
+                </tr>
+                <!-- More Rows Here -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="report-actions">
+            <button id="export-csv">Export to CSV</button>
+            <button id="export-pdf">Export to PDF</button>
+          </div>
         </div>
 
         <div id="support-tickets" class="page hidden">
-          <h1>Support Tickets</h1>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Ticket ID</th>
-                <th>User</th>
-                <th>Issue</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>SUP001</td>
-                <td>John Doe</td>
-                <td>Payment not reflecting</td>
-                <td>Pending</td>
-                <td><button>Resolve</button></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="section-header">
+            <h2>Support Tickets</h2>
+            <div class="ticket-filters">
+              <select id="ticket-status-filter">
+                <option value="all">All Tickets</option>
+                <option value="open">Open</option>
+                <option value="pending">Pending</option>
+                <option value="closed">Closed</option>
+              </select>
+              <button id="new-ticket-btn">New Ticket</button>
+            </div>
+          </div>
+
+          <div class="ticket-list">
+            <!-- Ticket Card -->
+            <div class="ticket-card" data-status="open">
+              <div class="ticket-info">
+                <h3>#1001 - Issue with Login</h3>
+                <p>Submitted by: John Doe</p>
+                <p>Status: <span class="status open">Open</span></p>
+              </div>
+              <button class="view-ticket-btn" data-ticket-id="1001">
+                View Details
+              </button>
+            </div>
+
+            <div class="ticket-card" data-status="pending">
+              <div class="ticket-info">
+                <h3>#1002 - Payment Not Reflecting</h3>
+                <p>Submitted by: Jane Smith</p>
+                <p>Status: <span class="status pending">Pending</span></p>
+              </div>
+              <button class="view-ticket-btn" data-ticket-id="1002">
+                View Details
+              </button>
+            </div>
+
+            <div class="ticket-card" data-status="closed">
+              <div class="ticket-info">
+                <h3>#1003 - Unable to Access Course</h3>
+                <p>Submitted by: David Lee</p>
+                <p>Status: <span class="status closed">Closed</span></p>
+              </div>
+              <button class="view-ticket-btn" data-ticket-id="1003">
+                View Details
+              </button>
+            </div>
+            <!-- More Tickets -->
+          </div>
+
+          <!-- Modal for Viewing Ticket Details -->
+          <div id="ticket-modal" class="modal hidden">
+            <div class="modal-content">
+              <button class="close-modal-btn">&times;</button>
+              <h3>Ticket Details</h3>
+              <div id="ticket-details">
+                <!-- Dynamic Content -->
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="faqs" class="page hidden">
-          <h1>Frequently Asked Questions</h1>
-          <p>Manage FAQs displayed on the user-facing site.</p>
-          <button class="btn-add">+ Add FAQ</button>
-          <ul class="faq-list">
-            <li>How to reset my password?</li>
-            <li>How to access purchased courses?</li>
-          </ul>
+          <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>
+              Find answers to the most common questions below. If you need
+              further assistance, feel free to contact us.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <!-- FAQ Item -->
+            <div class="faq-item">
+              <button class="faq-question">
+                What is the refund policy? <span class="toggle-icon">+</span>
+              </button>
+              <div class="faq-answer hidden">
+                Our refund policy allows you to request a refund within 14 days
+                of purchase if you have not accessed the course.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                How can I reset my password? <span class="toggle-icon">+</span>
+              </button>
+              <div class="faq-answer hidden">
+                You can reset your password by clicking the "Forgot Password"
+                link on the login page and following the instructions.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Are the courses self-paced? <span class="toggle-icon">+</span>
+              </button>
+              <div class="faq-answer hidden">
+                Yes, all our courses are self-paced, allowing you to learn at
+                your convenience.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I get a certificate after completing a course?
+                <span class="toggle-icon">+</span>
+              </button>
+              <div class="faq-answer hidden">
+                Yes, upon successful completion of the course, you will receive
+                a downloadable certificate.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                How do I contact support? <span class="toggle-icon">+</span>
+              </button>
+              <div class="faq-answer hidden">
+                You can reach out to our support team via the "Help and Support"
+                page or by using the live chat feature.
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div id="settings" class="page hidden">
-          <h1>System Settings</h1>
-          <p>Customize the platform's configurations and permissions.</p>
-          <button>Update Settings</button>
-        </div>
+        <section id="settings" class="page hidden">
+          <div class="section-header">
+            <h2>Settings</h2>
+            <p>
+              Manage your preferences, account security, and application
+              features.
+            </p>
+          </div>
+
+          <div class="settings-container">
+            <!-- Account Settings -->
+            <div class="settings-section">
+              <h3>Account Settings</h3>
+              <div class="settings-item">
+                <label for="username">Username:</label>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Enter your username"
+                  value="JohnDoe"
+                />
+              </div>
+              <div class="settings-item">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  value="johndoe@example.com"
+                />
+              </div>
+            </div>
+
+            <!-- Security Settings -->
+            <div class="settings-section">
+              <h3>Security Settings</h3>
+              <div class="settings-item">
+                <label for="password">Change Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter new password"
+                />
+              </div>
+              <div class="settings-item">
+                <button id="twoFactorToggle" class="toggle-button">
+                  Enable Two-Factor Authentication
+                </button>
+              </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="settings-section">
+              <h3>Notification Preferences</h3>
+              <div class="settings-item">
+                <label>
+                  <input type="checkbox" checked />
+                  Email Notifications
+                </label>
+              </div>
+              <div class="settings-item">
+                <label>
+                  <input type="checkbox" />
+                  Push Notifications
+                </label>
+              </div>
+            </div>
+
+            <!-- Appearance Settings -->
+            <div class="settings-section">
+              <h3>Appearance</h3>
+              <div class="settings-item">
+                <label>Theme:</label>
+                <select id="themeSelector">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                  <option value="system">System Default</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button class="save-button">Save Changes</button>
+            <button class="reset-button">Reset</button>
+          </div>
+        </section>
 
         <!-- Additional Sections (Payments, Reports, Support, Settings) -->
         <!-- Add similar structure -->
       </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>

@@ -1,5 +1,41 @@
 /* General Styles */
 body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to top, #e0f7fa, #f9f9f9);
+  color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  color: #fff;
+  background-color: #4a90e2;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  height: 12px;
+  background: url(../images/icons/angle-up-solid.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  height: 12px;
+  background: url(../images/icons/angle-down-solid.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  cursor: pointer;
+}
+
+body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;

@@ -4,6 +4,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #f7fafc;
+  color: #2d3748;
 }
 
 ::-webkit-scrollbar {
@@ -53,7 +55,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #fff; 
 }
 
 section {
@@ -83,6 +85,7 @@ img {
   justify-content: space-between;
   padding: 0.3em 2em;
   gap: 1em;
+  margin: 0;
 }
 
 .header .container .logo {

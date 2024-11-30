@@ -1,15 +1,38 @@
-/* General Reset */
-* {
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #f4f7fc;
-  color: #333;
-  line-height: 1.6;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to top, #e0f7fa, #f9f9f9);
+  color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  color: #fff;
+  background-color: #4a90e2;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  height: 12px;
+  background: url(../images/icons/angle-up-solid.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  height: 12px;
+  background: url(../images/icons/angle-down-solid.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  cursor: pointer;
 }
 
 /* Control Panel Layout */
@@ -19,24 +42,26 @@ body {
 }
 
 .sidebar {
-  width: 280px;
   background: linear-gradient(135deg, #4a90e2, #3b78d4);
   color: #fff;
   position: fixed;
-  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   overflow-y: auto;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-header {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .sidebar-header h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -80,7 +105,7 @@ body {
 .main-content {
   margin-left: 280px;
   flex-grow: 1;
-  padding: 40px;
+  padding: 50px;
   background: #f4f7fc;
   overflow-y: auto;
 }
